@@ -1,3 +1,38 @@
-.container {
-    
+body {
+    margin: 0;
+    background: rgb(205, 206, 206);
+}
+
+#calculator {
+    width: 50%;
+    height: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    padding-left: 5px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.buttons > * {
+    height: 35px;
+    background-color: rgb(205, 206, 206);
+    outline: none;
+    border: none;
 }

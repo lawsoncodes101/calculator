@@ -1,14 +1,14 @@
 const input = document.querySelector("input[type='text']");
-const numbers = document.querySelectorAll(".numbers button");
+const numbers = document.querySelectorAll(".num");
 const solve = document.querySelector(".solve");
 const clearBtn = document.querySelector(".clear");
-const operators = document.querySelectorAll(".op button");
+const operators = document.querySelectorAll(".op");
 const operatorList = ["+", "/", "*", "x", "-"];
 let firstNum = -Infinity;
 let lastNum = -Infinity;
 let operator = "";
 let result = -Infinity;
-let hasSolved = false;
+let toClear = false;
 
 const operate = function (a, op, b) {
    switch (op) {
@@ -42,9 +42,9 @@ const operate = function (a, op, b) {
 
 numbers.forEach((btn) =>
    btn.addEventListener("click", function () {
-      if (hasSolved) {
+      if (toClear) {
          input.value = "";
-         hasSolved = false;
+         toClear = false;
       }
       if (btn.textContent === "." && input.value.includes(".")) return;
       input.value += btn.textContent;
@@ -65,7 +65,7 @@ function runOperator(op) {
    }
 
    operator = opText;
-   input.value = "";
+   toClear = true;
 }
 
 input.addEventListener("keypress", function (e) {
@@ -84,7 +84,7 @@ operators.forEach((op) => {
 });
 
 solve.addEventListener("click", function () {
-   if (hasSolved === false) {
+   if (toClear === false) {
       if (!(firstNum > -Infinity)) return;
       if (input.value === "") return;
 
@@ -92,7 +92,7 @@ solve.addEventListener("click", function () {
 
       result = operate(firstNum, operator, lastNum);
       input.value = result % 1 === 0 ? result : result.toFixed(1);
-      hasSolved = true;
+      toClear = true;
 
       operator = "";
    }

@@ -10,6 +10,7 @@ body {
     padding: 20px;
     box-sizing: border-box;
     background-color: white;
+    border-radius: 10px;
 }
 
 input {
@@ -22,6 +23,7 @@ input {
     border: none;
     border-bottom: 2px solid white;
     margin-bottom: 20px;
+    cursor: default;
 }
 
 .buttons {
@@ -35,4 +37,9 @@ input {
     background-color: rgb(205, 206, 206);
     outline: none;
     border: none;
+    border-radius: 10px;
+}
+
+.buttons > *:hover {
+    background-color: rgb(180, 180, 180);
 }
